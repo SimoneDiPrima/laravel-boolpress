@@ -1978,15 +1978,16 @@ __webpack_require__.r(__webpack_exports__);
   name: "PostCard",
   props: {
     post: Object
-  } //     computed:{
-  //      pubblicata(){
-  //   const postDate = new Date(post.created_at);
-  //   let day = postDate.getDate();
-  //   let month = postDate.getMonth()+1;
-  //   let year = postDate.getFullYear();
-  // return `${day}/${month}/${year}`;
-  // },
-
+  },
+  methods: {
+    pubblicata: function pubblicata(post) {
+      var postDate = new Date(post.created_at);
+      var day = postDate.getDate();
+      var month = postDate.getMonth() + 1;
+      var year = postDate.getFullYear();
+      return "".concat(day, "/").concat(month, "/").concat(year);
+    }
+  }
 });
 
 /***/ }),
@@ -2272,7 +2273,7 @@ var render = function render() {
     staticClass: "card-title"
   }, [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("router-link", {
+  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.pubblicata(_vm.post)))]), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-primary offset-2 col-8 mt-2",
     attrs: {
       to: "/posts/".concat(_vm.post.id)
@@ -54565,7 +54566,7 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Laravel\laravel-api\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Laravel\laravel-boolpress\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
