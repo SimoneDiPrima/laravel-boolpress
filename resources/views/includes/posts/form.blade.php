@@ -1,12 +1,11 @@
 @if($post->exists)
-<form action="{{route('admin.posts.update', $post)}}" method="POST">
+<form action="{{route('admin.posts.update', $post)}}" enctype="multipart/form-data" method="POST">
     @method('PUT')
 @else
-<form action="{{route('admin.posts.store')}}" method="POST">
+<form action="{{route('admin.posts.store')}}" enctype="multipart/form-data" method="POST">
 
 @endif
 
-<form action="{{route('admin.posts.store')}}" method="POST">
             @csrf
   <div class="d-flex">
     <div class="form-group col-9">
@@ -53,10 +52,13 @@
     <label for="content">CONTENUTO</label><br>
     <textarea name="content" id="content" placeholder="content" row="10" cols="50">{{old('content',$post->content )}}</textarea>
   </div>
-  <div class="form-group">
+  
+    <div class="form-group">
     <label for="image">IMMAGINE</label>
-    <input type="url" class="form-control" name="image" id="image-field" value="{{old('image', $post->image )}}" placeholder="Url">
-  </div>
+    <br>
+    <input type="file" name="image" id="image-field" placeholder="Url">
+    </div>
+  
   <div class="col-1">
     <img class="img-fluid" id="preview" src="{{ $post->image ?? 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}" alt="Post Image Preview">
   </div>

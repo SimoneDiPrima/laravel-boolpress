@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -55,6 +56,11 @@ class PostController extends Controller
         $post->slug = Str::slug($post->title , '-');
 
         $post->user_id = Auth::id();
+
+        if(array_key_exists('image',$data)){
+            $image_links = Storage::put('image_links',$data['image']);
+            $post->image = $image_links;
+        }
 
         $post->save();
 
