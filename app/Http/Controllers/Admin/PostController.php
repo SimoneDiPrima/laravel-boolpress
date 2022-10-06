@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\PostPublishedMail;
 
 class PostController extends Controller
 {
@@ -67,6 +69,14 @@ class PostController extends Controller
         if(array_key_exists('tags',$data)){
             $post->tags()->attach($data['tags']);
         }
+        if($post){
+            $mail = new PostPublishedMail($post);
+            $user_email = Auth::user()->email;
+            Mail::to($user_email)->send($mail);
+
+        }
+      
+
 
         return redirect()->route('admin.posts.show', $post)->with('message','il post è stato creato con successo')->with('type','success');
 
