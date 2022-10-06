@@ -112,6 +112,12 @@ class PostController extends Controller
 
         $data['slug'] = Str::slug($data['title'], '-');
 
+        if(array_key_exists('image',$data)){
+            if($post->image)Storage::delete($post->image);
+            $image_links = Storage::put('image_links',$data['image']);
+            $post->image = $image_links;
+        }
+
         $post->update($data);
 
         if(array_key_exists('tags',$data)){
@@ -132,7 +138,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-if(count($post->tags->detach()))
+        // if(count($post->tags)) $post->tags->detach();
+
+        if($post->image)Storage::delete($post->image);
 
         $post->delete();
         return redirect()->route('admin.posts.index')

@@ -9,7 +9,7 @@ $isAuthor = $post->user_id === Auth::id()
 <div class="container">
     <header class="h2"><strong>{{$post->title}}</strong></header>
     <div class="clearfix mb-4">
-        <img class="showImage float-left mr-3 col-3" src="{{ $post->image }}" alt="{{ $post->slug }}" />
+        <img class="showImage float-left mr-3 col-3" src="{{ asset('storage/'.$post->image ) }}" alt="{{ $post->slug }}" />
         <h1>{{$post->title}}</h1>
         <h4><strong>Categoria:</strong></h4>
         @if($post->category)

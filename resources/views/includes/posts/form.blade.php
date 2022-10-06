@@ -60,7 +60,7 @@
     </div>
   
   <div class="col-1">
-    <img class="img-fluid" id="preview" src="{{ $post->image ?? 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}" alt="Post Image Preview">
+    <img class="img-fluid" src="{{ $post->image ? asset('storage/'.$post->image ) : 'https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg' }}"alt="{{ $post->slug }}">
   </div>
 
     <footer class="d-flex justify-content-between align-items-center mt-5">
