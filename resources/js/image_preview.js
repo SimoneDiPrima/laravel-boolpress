@@ -4,6 +4,14 @@ const imageField = document.getElementById('image-field');
 const preview = document.getElementById('preview');
 
 imageField.addEventListener('input',()=>{
-if(imageField.value) preview.src = imageField.value;
+if(imageField.files && imageField.files[0]){
+    let reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
+
+    reader.onload = event =>{
+        preview.src = event.target.result;
+    }
+
+}
 else preview.src = placeholder;
 });

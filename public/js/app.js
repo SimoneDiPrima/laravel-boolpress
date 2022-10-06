@@ -37387,7 +37387,14 @@ var placeholder = "https://media.istockphoto.com/vectors/thumbnail-image-vector-
 var imageField = document.getElementById('image-field');
 var preview = document.getElementById('preview');
 imageField.addEventListener('input', function () {
-  if (imageField.value) preview.src = imageField.value;else preview.src = placeholder;
+  if (imageField.files && imageField.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
+
+    reader.onload = function (event) {
+      preview.src = event.target.result;
+    };
+  } else preview.src = placeholder;
 });
 
 /***/ }),
