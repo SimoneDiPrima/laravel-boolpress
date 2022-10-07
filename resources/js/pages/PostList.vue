@@ -4,8 +4,6 @@
            <PostCard v-for="post in posts" :key="post.id" :post="post" />
         </ul>
     </div>
-
-
 </template>
 
 <script>
@@ -28,24 +26,14 @@
                     this.posts = res.data;
                 })
             },
-           
         },
         mounted(){
             this.fetchPosts();
         },
     };
 
-
-
-
-
 </script>
 
-
 <style>
-
-
-
-
 
 </style>

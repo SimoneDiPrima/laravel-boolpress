@@ -2,8 +2,8 @@
 
 <div class="content">
     <div class="title m-b-md">
-    <AppHeader />
-        <main class="container">
+    <AppHeader/>
+        <main>
              <router-view></router-view>
         </main>
     </div>

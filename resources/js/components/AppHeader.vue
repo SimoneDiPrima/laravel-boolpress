@@ -31,7 +31,13 @@
             name:"AppHeader",
         };
 </script>   
-<style>
+<style lang="scss">
+    nav{
+        a{
+            text-decoration:none;
+            color:dodgerblue;
+        }
+    }
          
     
 </style>
