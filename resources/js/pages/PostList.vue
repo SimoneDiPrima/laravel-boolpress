@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <ul class="offset-3 col-6 mb-4">
+    <div class="container d-flex flex-wrap">
+        <ul class="mb-4">
            <PostCard v-for="post in posts" :key="post.id" :post="post" />
         </ul>
     </div>
@@ -14,7 +14,10 @@
         name:'PostList',
         data(){
             return {
-                posts:[], 
+                posts:[],
+                authors:[],
+                categories:[], 
+                tags:[],     
             };
         },
         components:{ PostCard },

@@ -1,6 +1,6 @@
 <template>
-    <div class="card mb-4">
-                <img class="card-img-top PostCardImage" :src="post.image" :alt="post.slug">
+    <div class="card offset-3 col-6 mb-4">
+                <img class="card-img-top" width="100" height="100" :src="post.image" :alt="post.slug">
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.content }}</p>
