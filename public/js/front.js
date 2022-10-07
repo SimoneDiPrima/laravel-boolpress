@@ -2134,7 +2134,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("nav", {
+  return _c("div", [_c("nav", {
     staticClass: "navbar navbar-expand-lg navbar-light bg-light mb-5"
   }, [_c("a", {
     staticClass: "navbar-brand",
@@ -2168,7 +2168,7 @@ var render = function render() {
         name: "contacts"
       }
     }
-  }, [_vm._v("Contacts")])], 1)])])]);
+  }, [_vm._v("Contacts")])], 1)])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2325,7 +2325,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.pubblicata(_vm.post)))]), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-primary offset-2 col-8 mt-2",
     attrs: {
-      to: "/posts/".concat(_vm.post.id)
+      to: "/posts/".concat(_vm.post.slug)
     }
   }, [_vm._v("Vedi")])], 1)]);
 };
