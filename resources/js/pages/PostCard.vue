@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-4">
-                <img class="card-img-top" src="" alt="Card image cap">
+                <img class="card-img-top PostCardImage" :src="post.image" :alt="post.slug">
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.content }}</p>
@@ -42,7 +42,7 @@
         </script>
         
         
-        <style>
+        <style lang="scss">
             ul{
                 list-style-type: none;
             }
