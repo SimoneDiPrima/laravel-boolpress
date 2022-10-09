@@ -51,6 +51,18 @@ class PostController extends Controller
     {
         $data = $request->all();
 
+        $request->validate([
+         'title' => 'required|string|unique:posts|min:1 max:255',
+         'content' => 'required|string|min:1 max:255',
+         'image' => 'required|url|min:1 max:255',
+        ],
+        [
+            'title.unique' => 'il campo TItolo è obbligatorio',
+            'content.required' => 'il campo Descrizione è obbligatorio',
+            'image.url' => ' nel campo Immagine ricordati che devi inserire per forza un Url!'
+        ]
+        );
+
         $post = new Post();
 
         $post->fill($data);

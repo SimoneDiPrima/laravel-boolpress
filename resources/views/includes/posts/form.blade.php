@@ -1,3 +1,14 @@
+@if($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+
 @if($post->exists)
 <form action="{{route('admin.posts.update', $post)}}" enctype="multipart/form-data" method="POST">
     @method('PUT')
