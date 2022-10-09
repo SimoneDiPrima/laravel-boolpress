@@ -2002,7 +2002,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     pubblicata: function pubblicata(post) {
       var postDate = new Date(post.created_at);
-      var day = postDate.getDate();
+      var day = "0" + postDate.getDate();
       var month = postDate.getMonth() + 1;
       var year = postDate.getFullYear();
       return "".concat(day, "/").concat(month, "/").concat(year);
@@ -2037,7 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchPost: function fetchPost() {
       var _this = this;
 
-      axios.get("http://127.0.0.1:8000/api/posts/5").then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.id).then(function (res) {
         _this.post = res.data;
       });
     }
@@ -2279,7 +2279,26 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "d-flex vh-100 justify-content-center align-items-center flex-column",
+    attrs: {
+      id: "not-found-page"
+    }
+  }, [_vm._m(0), _vm._v(" "), _c("div", [_c("div", [_c("router-link", {
+    staticClass: "btn btn-secondary mb-2",
+    attrs: {
+      to: {
+        name: "home"
+      }
+    }
+  }, [_vm._v("Torna alla Home")])], 1), _vm._v(" "), _c("div", [_c("button", {
+    staticClass: "btn btn-secondary",
+    on: {
+      click: function click($event) {
+        return _vm.$router.back();
+      }
+    }
+  }, [_vm._v("Torna indietro")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2287,11 +2306,8 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "d-flex vh-100 justify-content-center align-items-center",
-    attrs: {
-      id: "not-found-page"
-    }
-  }, [_c("h4", [_vm._v("404  ")]), _vm._v(" "), _c("h5", [_vm._v("pagina non trovata")])]);
+    staticClass: "mb-2"
+  }, [_c("h4", [_vm._v("404")]), _vm._v(" "), _c("h5", [_vm._v("pagina non trovata")])]);
 }];
 render._withStripped = true;
 
@@ -2332,7 +2348,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.pubblicata(_vm.post)))]), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-primary offset-2 col-8 mt-2",
     attrs: {
-      to: "/posts/".concat(_vm.post.slug)
+      to: "/posts/".concat(_vm.post.id)
     }
   }, [_vm._v("Vedi")])], 1)]);
 };
@@ -54739,15 +54755,15 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _pages_ContactsPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: 'contacts'
   }, {
-    path: '*',
-    component: _pages_NotFoundPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    name: 'not_found'
-  }, //metterla sempre in fondo!!altrimenti nn fa vedere altre rotte tranne lei
-  {
     path: '/posts/:id',
     component: _pages_PostDetailPage_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'post-detail'
-  }]
+  }, {
+    path: '*',
+    component: _pages_NotFoundPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    name: 'not_found'
+  } //metterla sempre in fondo!!altrimenti nn fa vedere altre rotte tranne lei
+  ]
 });
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

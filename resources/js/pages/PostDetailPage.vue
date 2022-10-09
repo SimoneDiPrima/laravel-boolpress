@@ -22,7 +22,7 @@ import PostCard from './PostCard.vue';
             components:{ PostCard },
             methods:{
                 fetchPost(){
-                    axios.get(`http://127.0.0.1:8000/api/posts/5`).then(res=>{
+                    axios.get(`http://127.0.0.1:8000/api/posts/`+ this.$route.params.id).then(res=>{
                         this.post = res.data
                     })
                 },

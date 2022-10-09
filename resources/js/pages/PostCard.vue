@@ -6,7 +6,7 @@
                     <p class="card-text">{{ post.content }}</p>
                     
                     <p>{{ pubblicata(post) }}</p>
-                   <router-link class="btn btn-primary offset-2 col-8 mt-2" :to="`/posts/${post.slug}`">Vedi</router-link>
+                   <router-link class="btn btn-primary offset-2 col-8 mt-2" :to="`/posts/${post.id}`">Vedi</router-link>
                     <!-- //da modificare con metodo professionale la presa dell id nel post -->
                 </div>
             </div>  
@@ -24,7 +24,7 @@
             methods:{
           pubblicata(post){
         const postDate = new Date(post.created_at);
-            let day = postDate.getDate();
+            let day = "0" + postDate.getDate();
             let month = postDate.getMonth()+1;
             let year = postDate.getFullYear();
                 
