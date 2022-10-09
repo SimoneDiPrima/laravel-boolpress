@@ -2037,7 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchPost: function fetchPost() {
       var _this = this;
 
-      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.id).then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.slug).then(function (res) {
         _this.post = res.data;
       });
     }
@@ -2348,7 +2348,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.pubblicata(_vm.post)))]), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-primary offset-2 col-8 mt-2",
     attrs: {
-      to: "/posts/".concat(_vm.post.id)
+      to: "/posts/".concat(_vm.post.slug)
     }
   }, [_vm._v("Vedi")])], 1)]);
 };
@@ -54755,7 +54755,7 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _pages_ContactsPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: 'contacts'
   }, {
-    path: '/posts/:id',
+    path: '/posts/:slug',
     component: _pages_PostDetailPage_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'post-detail'
   }, {

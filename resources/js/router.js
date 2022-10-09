@@ -16,7 +16,7 @@ const routes = new VueRouter({
     routes:[
         {path:'/',component: HomePage, name:'home'},
         {path:'/contacts',component: ContactsPage , name:'contacts'},
-        {path:'/posts/:id',component: PostDetailPage , name:'post-detail'},
+        {path:'/posts/:slug',component: PostDetailPage , name:'post-detail'},
         {path:'*',component: NotFoundPage , name:'not_found'},//metterla sempre in fondo!!altrimenti nn fa vedere altre rotte tranne lei
     ]
 })
